@@ -4,7 +4,7 @@ MADE BY (21EG106B01)
 
 This is an app made in HTML, CSS and JavaScript. It is a coffee vending machine app which can be installed on those machines to get coffee.It helps in selecting and paying for the coffee.
 
-## *To start the app open 'index.html'*
+### To start the app clone the repository and open 'index.html' in a web browser.
 
 1. A menu is shown where all the coffees are listed with their prices.
 2. Select the coffee you want.
