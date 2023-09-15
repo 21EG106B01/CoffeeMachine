@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StarCups - Order Coffee</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1 id="comphead">StarCups</h1>
+    <div class="main-box col-lg-7 col-m-7 col-sm-7">
+        <div class="content-box">
+            <div class="content">
+                <h1>Place Your Coffee Order</h1>
+                <p>Please pay to start pouring your coffee</p>
+            </div>
+        </div>
+		<div id="payinf">
+			<h4>Coffee : <span id="cofname"></span></h4>
+			<h4>Cost : <span id="cofprice">0</span>  <span id="paysts" style="color: green;"></span></h4>
+			<h4>Your payment : <span id="payd">0</span></h4>
+			<h4>Your change : <span id="change">0</span></h4>
+		</div>
+		<div class="payment">
+			<div class="row">
+				<button onClick="payp(10);">10</button>
+				<button onClick="payp(20);">20</button>
+				<button onClick="payp(50);">50</button>
+				<button onClick="payp(100);">100</button>
+			</div>
+			<div class="row">
+				<button onClick="payp(200);">200</button>
+				<button onClick="payp(500);">500</button>
+				<button onClick="payp(2000);">2000</button>
+				<button id="paybtn" onclick="paydon()">PAY</button>
+			</div>
+		</div>
+    </div>
+	
+	<div class="col-lg-5 col-md-5 col-sm-5 main-box" id="pour-box" style="margin-left: 20px; width:40%;">
+		<h2>Pour Coffee</h2>
+		<video src="images/Animated-Coffee.mp4" height="300px" width="300px" id="cofvid"></video>
+		<div class="row" style="font-size: 20px;">
+		<button class="disabled" onclick="pourcof()" id="pourbtn" style="font-size: 20px;">Start Pouring</button>
+		<button class="disabled" onclick="location.href='thankyou.html'" id="contibtn">Continue</button>
+		</div>
+	</div>
+
+    <script>
+		let cof = localStorage.getItem("coffee");
+		let cofp = localStorage.getItem("price");
+		let pourbtn = document.getElementById("pourbtn");
+		let contibtn = document.getElementById("contibtn");
+		let paysts = document.getElementById("paysts");
+		let cofvid = document.getElementById("cofvid");
+		document.getElementById("cofname").textContent = cof;
+		document.getElementById("cofprice").textContent = cofp;
+		
+		if(pourbtn.classList.contains("disabled") == false){
+			pourbtn.classList.add("disabled");
+			contibtn.classList.add("disabled");
+			paysts.textContent = "";
+		}
+		
+		function payp(amt){
+			const payd = document.getElementById("payd");
+			const change = document.getElementById("change");
+			payd.textContent = Number(payd.textContent) + amt;
+			if ((Number(payd.textContent) - cofp) > 0){
+				change.textContent = Number(payd.textContent) - cofp;
+			} else {
+				change.textContent = 0;
+			}
+		}
+		function paydon() {
+			const payd = document.getElementById("payd");
+			const pourbtn = document.getElementById("pourbtn");
+			if ((Number(payd.textContent) - cofp) > 0){
+				pourbtn.classList.remove("disabled");
+				paysts.textContent = "[PAID]";
+				alert("Collect your change : " + document.getElementById("change").textContent);
+			}
+			else{
+				alert("Not enough paid");
+			}
+		}
+		function pourcof(){
+			cofvid.play();
+			contibtn.classList.remove("disabled");
+		}
+    </script>
+</body>
+</html>

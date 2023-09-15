@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StarCups</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1 id="comphead">StarCups<br></h1>
+	<div id="container">
+    <div class="main-box col-xl-12 col-lg-12 col-m-12 col-sm-12">
+        <div class="content-box">
+            <div class="content">
+                <h2>Welcome to StarCups machine</h2>
+                <h2>Select your Coffee</h2>
+            </div>
+        </div>
+        <div class="image-box">
+            <div class="image-container">
+			<div class="row">
+				<div class="image-with-button" id="b1" onClick="myFunc(this.id);">
+					<img src="images/cappi.jpeg" class="cofimg">
+					<div>
+					<h3 class="contname">Cappucino</h3>
+					<p class="price">200</p>
+					</div>
+				</div>
+				
+				<div class="image-with-button" id="b2" onClick="myFunc(this.id);">
+					<img src="images/latte.jpeg" alt="Coffee Image 2" class="cofimg">
+					<div>
+					<h3 class="contname">Latte</h3>
+					<p class="price">300</p>
+					</div>
+				</div>
+				
+				<div class="image-with-button" id="b3" onClick="myFunc(this.id);">
+					<img src="images/espro.jpeg" alt="Coffee Image 3" class="cofimg">
+					<div>
+					<h3 class="contname">Espresso</h3>
+					<p class="price">350</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="image-with-button" id="b4" onClick="myFunc(this.id);">
+					<img src="images/cafmoc.jpeg" alt="Coffee Image 1" class="cofimg">
+					<div>
+					<h3 class="contname">Cafe Mocha</h3>
+					<p class="price">375</p>
+					</div>
+				</div>
+				
+				<div class="image-with-button" id="b5" onClick="myFunc(this.id);">
+					<img src="images/Carmac.jpeg" alt="Coffee Image 1" class="cofimg">
+					<div>
+					<h3 class="contname">Caramel Macchiato</h3>
+					<p class="price">400</p>
+					</div>
+				</div>
+				
+				<div class="image-with-button" id="b6" onClick="myFunc(this.id);">
+					<img src="images/Frapp.jpeg" alt="Coffee Image 1" class="cofimg">
+					<div>
+					<h3 class="contname">Frappe</h3>
+					<p class="price">450</p>
+					</div>
+				</div>
+			</div>
+            </div>
+        </div>
+    </div>
+	<div id="price-box" class="col-xl-12 col-lg-12 col-m-12 col-sm-12">
+		<div id="oper">
+			<button name="proceed" onclick="location.href='order.html'">Proceed</button>
+			<button id="clrbtn" onclick="clearfunc()">Clear</button>
+			<button id="exitbtn">Exit</button>
+		</div>
+	</div>
+	</div>
+</body>
+<script>
+	function myFunc(id) {
+		const button = document.getElementById(id);
+		clearfunc();
+		if(button.classList.contains("selected")){
+			button.classList.remove("selected"); 
+		} else {
+			button.classList.add("selected");
+		}
+		localStorage.setItem("coffee", button.lastElementChild.firstElementChild.textContent);
+		localStorage.setItem("price", button.lastElementChild.lastElementChild.textContent);
+	}
+	function clearfunc(){
+		localStorage.setItem("coffee", "");
+		for (let i = 1; i < 7; i++) {
+			document.getElementById("b"+i).classList.remove("selected");
+		}
+	}
+</script>
+</html>

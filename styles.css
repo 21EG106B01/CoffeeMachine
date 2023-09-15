@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
+
+*{
+	border-radius: 10px;
+}
+body {
+    margin: 20px;
+    font-family: 'Cabin', Tahoma, Arial;
+    background-color: #108a93;
+	color: white;
+    height: 90%;
+}
+h2{
+	margin: 0;
+}
+#comphead {
+	color: white;
+	font-weight: 500;
+	font-family: 'Lobster', Tahoma;
+	margin : 10px 10px 20px 20px;
+	font-size: 50px;
+}
+#container{
+	gap: 20px;
+	height: 90%;
+}
+.h1{
+    font-size:larger;
+}
+.h2{
+    font-size: medium;
+}
+.main-box {
+    background-color: #fdfdfd;
+    color: #03030d;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.row {
+	display: flex;
+	gap: 2%;
+}
+.image-container {
+    gap: 20px; /* Gap between images */
+    align-items: center; /* Center vertically */
+}
+
+.image-with-button {
+	padding: 5px;
+	border: 2px solid #108a93;
+	width: 60%;
+	height: 60%;
+	display: flex;
+	align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+	cursor: pointer;
+}
+.image-with-button:hover {
+	background: #108a93;
+	color: white;
+}
+.image-with-button:active {
+	background: #007a83;
+	color: white;
+	border: 2px solid #007a83;
+}
+.image-with-button div{
+	flex: 4;
+}
+.cofimg{
+	width: 100px;
+	height: 100px;
+	flex: 1;
+}
+.contname{
+	font-weight: 500;
+	font-family: 'Lobster', Tahoma;
+	margin: 0;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	flex: 8;
+	font-size: 28px;
+	text-align: center;
+}
+.price {
+	flex: 3;
+	font-size: 20px;
+	text-align: center;
+}
+#price-box{
+	padding: 20px;
+    text-align: center;
+    background-color: #fdfdfd;
+    color: #03030d;
+	margin-top: 10px;
+}
+#amount {
+	margin-top: 50px;
+}
+#oper{
+	display: flex;
+}
+#oper button{
+	flex: 1;
+	margin: 5px;
+	height: 50px;
+	font-size: 20px;
+}
+button{
+	height: 30px;
+	min-width: 50px;
+	border: 1px solid red;
+	background: red;
+	color: white;
+	margin: 5px;
+}
+button:hover {
+	border: 1px solid red;
+	background: white;
+	color: red;
+	cursor: pointer;
+}
+.selected{
+	background: #108a93;
+	color: #fdfdfd;
+}
+.row button{
+	width: 150px;
+	height: 80px;
+	font-size: 30px;
+}
+#paybtn{
+	background: rgb(34, 177, 76);
+	border-color: rgb(34, 177, 76);
+}
+#paybtn:hover{
+	color: rgb(34, 177, 76);
+	background: white;
+}
+button:active{
+	background: #d0d0d0 !important;
+}
+#payinf {
+	margin: 50px;
+	border: 2px solid #108a93;
+}
+#payinf *{
+	font-size: 20px;
+}
+#pour-box{
+	margin-left: 0px;
+	display: block;
+}
+.disabled {
+  pointer-events: none;
+  opacity: .65;
+}
